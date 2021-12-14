@@ -7,8 +7,8 @@ export class Tariff {
               public maxLuggageWeight: number,
               public childAge: number,
               public discount: number,
-              public luggageDiscount: LuggageDiscount,
-              public extraLuggageTariff: LuggageType,
+              public discountType: LuggageDiscountType,
+              public extraLuggageTariff: ExtraLuggageType,
   ) {
   }
 
@@ -26,7 +26,7 @@ export class Tariff {
     distancePrice = distance * this.pricePerKm
 
     // 3
-    if (this.extraLuggageTariff == LuggageType.total) {
+    if (this.extraLuggageTariff == ExtraLuggageType.total) {
       if (luggageWeight > this.borderWeight) {
         luggagePrice = this.extraLuggagePrice
       }
@@ -40,7 +40,7 @@ export class Tariff {
     if (age > this.childAge) {
       ticketPrice = distancePrice + luggagePrice
     } else {
-      if (this.luggageDiscount == LuggageDiscount.withLuggage) {
+      if (this.discountType == LuggageDiscountType.withLuggage) {
         ticketPrice = (distancePrice + luggagePrice) * (100 - this.discount) / 100
       } else {
         ticketPrice = distancePrice * (100 - this.discount) / 100 + luggagePrice
@@ -53,12 +53,12 @@ export class Tariff {
 }
 
 
-export enum LuggageDiscount {
+export enum LuggageDiscountType {
   withLuggage = 'withLuggage',
   noLuggage = 'noLuggage'
 }
 
-export enum LuggageType {
+export enum ExtraLuggageType {
   total = 'total',
   perKilo = 'perKilo'
 }

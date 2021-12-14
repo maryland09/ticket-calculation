@@ -1,1 +1,62 @@
-<p>ticket-calculation works!</p>
+<div class="card">
+
+  <form #form="ngForm"
+        [ngFormOptions]="{updateOn: 'blur'}"
+        (ngSubmit)="calc(form)">
+
+    <div class="form-group">
+      <label>Количество километров</label>
+      <input type="number"
+             name="distance"
+             [(ngModel)]="distance"
+             required>
+    </div>
+
+    <div class="form-group">
+      <label>Возраст</label>
+      <input type="number"
+             name="age"
+             [(ngModel)]="age"
+             required>
+    </div>
+
+    <div class="form-group">
+      <label>Вес багажа</label>
+      <input type="number"
+             name="weight"
+             [(ngModel)]="luggageWeight"
+             required>
+    </div>
+
+    <button (click)="buttonFlag = true">Рассчитать</button>
+  </form>
+
+
+  <ng-container *ngIf="!isEmptyCompany(aeroflot) || !isEmptyCompany(rzd); else noOffer">
+    <div class="text"> Предложения:</div>
+
+    <div class="wrapper" *ngIf="!isEmptyCompany(aeroflot)">
+      <div class="title">Аэрофлот</div>
+      <div class="item" *ngIf="priceByTariff(aeroflot, 'econom') > 0">
+        Эконом: {{priceByTariff(aeroflot, 'econom')}}</div>
+      <div class="item" *ngIf="priceByTariff(aeroflot, 'advanced') > 0">
+        Продвинутый: {{priceByTariff(aeroflot, 'advanced')}}</div>
+      <div class="item" *ngIf="priceByTariff(aeroflot, 'luxe') > 0">Люкс: {{priceByTariff(aeroflot, 'luxe')}}</div>
+    </div>
+
+    <div class="wrapper" *ngIf="!isEmptyCompany(rzd)">
+      <div class="title">РЖД</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'econom') > 0">Эконом: {{priceByTariff(rzd, 'econom')}}</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'advanced') > 0">Продвинутый: {{priceByTariff(rzd, 'advanced')}}</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'luxe') > 0">Люкс: {{priceByTariff(rzd, 'luxe')}}</div>
+    </div>
+  </ng-container>
+
+  <ng-template #noOffer>
+    <div class="text" *ngIf="buttonFlag"> Нет подходящих предложений</div>
+  </ng-template>
+
+</div>
+
+
+

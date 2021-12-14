@@ -1,0 +1,70 @@
+.card{
+  margin: 5% 10%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group{
+  margin: 5px 0 0 0;
+  display: flex;
+  flex-direction: row;
+
+}
+
+label{
+  font-size: 18px;
+  font-weight: bolder;
+  width: 30%;
+}
+
+input {
+  width: 70%;
+  padding: 11px;
+  border: none;
+  background: #f1f1f1;
+  border-style: ridge;
+  margin: 0px;
+}
+
+
+button{
+  width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
+  background-color: blue;
+  color: white;
+}
+
+.text{
+  font-size: 18px;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+
+
+.wrapper {
+  display: grid;
+  font-size: 18px;
+  background-color: #f1f1f1;
+
+}
+.title{
+ padding: 3px;
+ background-color: #c1c1c1;
+ font-weight: bolder;
+
+}
+
+.item {
+  padding: 3px;
+}
+
+.item:hover {
+  background: lightgrey;
+}
+
+input.ng-touched.ng-invalid {border:solid red 2px;}
+input.ng-touched.ng-valid {border:solid green 2px;}
+

@@ -17,7 +17,6 @@ export class TariffService {
   }
 
   calculate(distance: number, age: number, luggageWeight: number) {
-
     let aeroflot: Array<Tariff> = []
     let aeroflotPrices:  Array<Variant> = []
     aeroflot.push(AeroflotEconom, AeroflotAdvanced, AeroflotLuxe)
