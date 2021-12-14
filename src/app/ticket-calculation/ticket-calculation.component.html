@@ -38,17 +38,18 @@
     <div class="wrapper" *ngIf="!isEmptyCompany(aeroflot)">
       <div class="title">Аэрофлот</div>
       <div class="item" *ngIf="priceByTariff(aeroflot, 'econom') > 0">
-        Эконом: {{priceByTariff(aeroflot, 'econom')}}</div>
+        Эконом: {{priceByTariff(aeroflot, 'econom') | currency }}</div>
       <div class="item" *ngIf="priceByTariff(aeroflot, 'advanced') > 0">
-        Продвинутый: {{priceByTariff(aeroflot, 'advanced')}}</div>
-      <div class="item" *ngIf="priceByTariff(aeroflot, 'luxe') > 0">Люкс: {{priceByTariff(aeroflot, 'luxe')}}</div>
+        Продвинутый: {{priceByTariff(aeroflot, 'advanced') | currency}}</div>
+      <div class="item" *ngIf="priceByTariff(aeroflot, 'luxe') > 0">
+        Люкс: {{priceByTariff(aeroflot, 'luxe') | currency}}</div>
     </div>
 
     <div class="wrapper" *ngIf="!isEmptyCompany(rzd)">
       <div class="title">РЖД</div>
-      <div class="item" *ngIf="priceByTariff(rzd, 'econom') > 0">Эконом: {{priceByTariff(rzd, 'econom')}}</div>
-      <div class="item" *ngIf="priceByTariff(rzd, 'advanced') > 0">Продвинутый: {{priceByTariff(rzd, 'advanced')}}</div>
-      <div class="item" *ngIf="priceByTariff(rzd, 'luxe') > 0">Люкс: {{priceByTariff(rzd, 'luxe')}}</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'econom') > 0">Эконом: {{priceByTariff(rzd, 'econom') | currency}}</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'advanced') > 0">Продвинутый: {{priceByTariff(rzd, 'advanced') | currency}}</div>
+      <div class="item" *ngIf="priceByTariff(rzd, 'luxe') > 0">Люкс: {{priceByTariff(rzd, 'luxe') | currency}}</div>
     </div>
   </ng-container>
 
